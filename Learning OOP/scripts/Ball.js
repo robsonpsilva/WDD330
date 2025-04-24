@@ -1,4 +1,4 @@
-class Ball {
+export class Ball {
     constructor(x, y, velX, velY, color, size) {
       this.x = x;
       this.y = y;
@@ -7,13 +7,13 @@ class Ball {
       this.color = color;
       this.size = size;
     }
-    draw() {
+    draw(ctx) {
         ctx.beginPath();
         ctx.fillStyle = this.color;
         ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
         ctx.fill();
       }
-      update() {
+      update(width, height) {
         if (this.x + this.size >= width) {
           this.velX = -this.velX;
         }

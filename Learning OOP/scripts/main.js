@@ -1,5 +1,5 @@
 
-const Ball = require('./Ball');
+import { Ball } from './Ball.js';
 // setup canvas
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
@@ -36,3 +36,17 @@ while (balls.length < 25) {
 
   balls.push(ball);
 }
+
+function loop() {
+  ctx.fillStyle = "rgb(0 0 0 / 25%)";
+  ctx.fillRect(0, 0, width, height);
+
+  for (const ball of balls) {
+    ball.draw(ctx);
+    ball.update(width, height);
+  }
+
+  requestAnimationFrame(loop);
+}
+
+loop();
