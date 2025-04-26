@@ -44,6 +44,7 @@ function loop() {
   for (const ball of balls) {
     ball.draw(ctx);
     ball.update(width, height);
+    ball.collisionDetect(balls);
   }
 
   requestAnimationFrame(loop);
